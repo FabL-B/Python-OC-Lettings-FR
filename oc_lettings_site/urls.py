@@ -10,7 +10,6 @@ This module defines the main URL routes of the application, including
 index handling and app-specific URL configurations.
 """
 
-
 handler404 = "oc_lettings_site.views.custom_404"
 handler500 = "oc_lettings_site.views.custom_500"
 

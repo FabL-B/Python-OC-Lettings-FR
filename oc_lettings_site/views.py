@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import logging
 
 """
 View management module for the OC Lettings Site application.
@@ -6,11 +7,14 @@ View management module for the OC Lettings Site application.
 This module contains the main view for rendering the home page.
 """
 
+logger = logging.getLogger(__name__)
+
 
 def index(request):
     """
     Display the homepage.
     """
+    logger.info("Homepage accessed")
     return render(request, 'index.html')
 
 
