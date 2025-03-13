@@ -119,7 +119,7 @@ STATICFILES_DIRS = [BASE_DIR / "static", ]
 
 # Sentry configuration
 
-SENTRY_DSN = "https://0ff55f35b632f908c7f57e752e8e4faf@o4508856670683136.ingest.de.sentry.io/4508969465479248"
+SENTRY_DSN = os.getenv("SENTRY_DSN", "")
 
 if SENTRY_DSN:
     sentry_sdk.init(

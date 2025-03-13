@@ -11,6 +11,7 @@ and details of a specific rental.
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):
     """
     Display the list of available rentals.
