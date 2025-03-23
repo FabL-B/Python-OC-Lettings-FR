@@ -24,6 +24,9 @@ jobs:
           pip install -r requirements.txt
           pip install flake8 pytest pytest-cov
 
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
+
       - name: Lint with flake8
         run: flake8 .
 
