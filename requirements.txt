@@ -4,3 +4,4 @@ pytest-django==3.9.0
 sentry-sdk==2.22.0
 six>=1.16.0
 whitenoise
+python-dotenv==1.0.1
