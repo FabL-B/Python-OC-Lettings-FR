@@ -5,3 +5,4 @@ sentry-sdk==2.22.0
 six>=1.16.0
 whitenoise
 python-dotenv==1.0.1
+Sphinx==8.2.3
