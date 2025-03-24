@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [master, qa]
+    branches: ["*"]
   pull_request:
     branches: [master]
 
@@ -34,6 +34,7 @@ jobs:
         run: pytest --cov=. --cov-fail-under=80
 
   docker:
+    if: github.ref == 'refs/heads/master'
     needs: test
     runs-on: ubuntu-latest
 
@@ -51,6 +52,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/oc-lettings-site:latest
 
   deploy:
+    if: github.ref == 'refs/heads/master'
     needs: docker
     runs-on: ubuntu-latest
     steps:
