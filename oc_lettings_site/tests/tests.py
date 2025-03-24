@@ -18,3 +18,5 @@ def test_custom_404_page(client):
 
     assert response.status_code == 404
     assertTemplateUsed(response, "404.html")
+
+# faire test de erreur 500
