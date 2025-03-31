@@ -1,3 +1,12 @@
+## Sommaire
+
+- [Résumé](#résumé)
+- [Développement local](#développement-local)
+  - [macOS / Linux](#macos--linux)
+  - [Windows](#windows)
+- [Documentation](#documentation)
+- [Technologies utilisées](#technologies-utilisées)
+
 ## Résumé
 
 Site web d'Orange County Lettings
@@ -18,7 +27,7 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 #### Cloner le repository
 
 - `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+- `git clone https://github.com/FabL-B/Python-OC-Lettings-FR`
 
 #### Créer l'environnement virtuel
 
@@ -87,7 +96,7 @@ Elle comprend :
 - Une documentation manuelle des modèles et vues
 - (Optionnel) Une référence API générée automatiquement avec `autodoc`
 
-👉 Accéder à la documentation : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
+ Accéder à la documentation : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
 
 Pour regénérer la documentation localement :
 
@@ -100,3 +109,14 @@ make html
 
 # Ouvrir la documentation locale
 docs/build/html/index.html
+```
+
+## Technologies utilisées
+
+- Python 3.12
+- Django 4.x
+- SQLite
+- Docker & DockerHub
+- Render (hébergement)
+- GitHub & GitHub Actions
+- Sphinx + Read the Docs

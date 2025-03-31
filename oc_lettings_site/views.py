@@ -30,3 +30,10 @@ def custom_500(request):
     Display 500 error.
     """
     return render(request, "500.html", status=500)
+
+
+def trigger_500(request):
+    """
+    Simulated view used only to test the 500 error handler.
+    """
+    raise Exception("Test 500 error")

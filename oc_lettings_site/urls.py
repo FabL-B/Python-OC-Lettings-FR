@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from oc_lettings_site.views import index
+from oc_lettings_site.views import index, trigger_500
 
 """
 URL configuration module for the OC Lettings Site application.
@@ -18,4 +18,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('lettings/', include('lettings.urls', namespace="lettings")),
     path('profiles/', include('profiles.urls', namespace="profiles")),
+    path("trigger-500/", trigger_500),
 ]

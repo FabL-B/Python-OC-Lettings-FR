@@ -1,4 +1,5 @@
 import pytest
+from django.test import override_settings
 from django.urls import reverse
 from pytest_django.asserts import assertTemplateUsed
 
@@ -19,4 +20,12 @@ def test_custom_404_page(client):
     assert response.status_code == 404
     assertTemplateUsed(response, "404.html")
 
-# faire test de erreur 500
+
+@override_settings(DEBUG=False)
+def test_custom_500_page(client):
+    """Test custom 500 error page uses 500.html template."""
+    client.raise_request_exception = False
+    response = client.get("/trigger-500/")
+
+    assert response.status_code == 500
+    assertTemplateUsed(response, "500.html")
