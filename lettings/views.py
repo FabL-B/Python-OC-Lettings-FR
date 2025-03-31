@@ -1,6 +1,7 @@
 import logging
 from django.shortcuts import render
 from lettings.models import Letting
+from django.http import Http404
 
 """
 View management module for the Lettings application.
@@ -35,5 +36,5 @@ def letting_detail(request, letting_id):
         }
         return render(request, 'lettings/letting.html', context)
     except Letting.DoesNotExist:
-        logger.error(f"[Lettings] No rental found with ID={letting_id}")
-        return render(request, '404.html', status=404)
+        logger.error(f"[Lettings] No letting found with ID={letting}")
+        raise Http404("Letting not found")

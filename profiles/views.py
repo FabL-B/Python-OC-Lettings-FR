@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from profiles.models import Profile
 import logging
-
+from django.http import Http404
 
 """
 View management module for the Profiles application.
@@ -34,4 +34,4 @@ def profile_detail(request, username):
         return render(request, 'profiles/profile.html', context)
     except Profile.DoesNotExist:
         logger.error(f"[Profiles] No profile found with ID={username}")
-        return render(request, '404.html', status=404)
+        raise Http404("Profile not found")
