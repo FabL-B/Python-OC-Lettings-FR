@@ -25,4 +25,5 @@ Development Tools
 - **Git** : Version control system.
 - **GitHub** : Source code hosting platform.
 - **Docker** : Used for containerizing the application.
-- **Render** : Platform chosen to deploy the application.
+- **DockerHub** : Used as a remote registry to store and distribute Docker images.
+- **Render** : Platform chosen to deploy the application using Docker images.
