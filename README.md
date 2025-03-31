@@ -75,3 +75,28 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Documentation
+
+La documentation technique du projet est générée avec [Sphinx](https://www.sphinx-doc.org/) et hébergée sur [Read the Docs](https://readthedocs.org/).
+
+Elle comprend :
+
+- Un guide d’installation et de déploiement
+- Une description des technologies utilisées
+- Une documentation manuelle des modèles et vues
+- (Optionnel) Une référence API générée automatiquement avec `autodoc`
+
+👉 Accéder à la documentation : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
+
+Pour regénérer la documentation localement :
+
+```bash
+# Sous Windows
+.\docs\make.bat html
+
+# Sous Linux/macOS
+make html
+
+# Ouvrir la documentation locale
+docs/build/html/index.html
