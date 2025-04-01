@@ -10,7 +10,7 @@ This module contains views to display the list of rentals
 and details of a specific rental.
 """
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("django")
 
 
 def index(request):

@@ -7,7 +7,7 @@ View management module for the OC Lettings Site application.
 This module contains the main view for rendering the home page.
 """
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("django")
 
 
 def index(request):

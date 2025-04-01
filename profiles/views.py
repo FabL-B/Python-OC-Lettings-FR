@@ -10,7 +10,7 @@ This module contains views to display the list of user profiles
 and details of a specific profile.
 """
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("django")
 
 
 def index(request):
