@@ -11,6 +11,10 @@
 
 Site web d'Orange County Lettings
 
+**Accès en ligne** : [https://oc-lettings-site-flb.onrender.com](https://oc-lettings-site-flb.onrender.com)
+
+**Documentation** : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
+
 ## Développement local
 
 ### Prérequis
