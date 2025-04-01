@@ -36,5 +36,5 @@ def letting_detail(request, letting_id):
         }
         return render(request, 'lettings/letting.html', context)
     except Letting.DoesNotExist:
-        logger.error(f"[Lettings] No letting found with ID={letting}")
+        logger.error(f"[Lettings] No letting found with ID={letting_id}")
         raise Http404("Letting not found")
