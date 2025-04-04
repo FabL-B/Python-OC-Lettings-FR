@@ -22,4 +22,3 @@ documentation for details.
    api
    usage_guide
    deployment
-   test
