@@ -1,58 +1,60 @@
-## Sommaire
+## Table of Contents
 
-- [Résumé](#résumé)
-- [Développement local](#développement-local)
+- [Summary](#summary)
+- [Local Development](#local-development)
   - [macOS / Linux](#macos--linux)
   - [Windows](#windows)
 - [Documentation](#documentation)
-- [Technologies utilisées](#technologies-utilisées)
+- [Technologies Used](#technologies-used)
 
-## Résumé
+## Summary
 
-Site web d'Orange County Lettings
+Orange County Lettings website
 
-**Accès en ligne** : [https://oc-lettings-site-flb.onrender.com](https://oc-lettings-site-flb.onrender.com)
+**Online access**: [https://oc-lettings-site-flb.onrender.com](https://oc-lettings-site-flb.onrender.com)
 
-**Documentation** : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
+**Documentation**: [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
 
-## Développement local
+## Local Development
 
-### Prérequis
+### Prerequisites
 
-- Compte GitHub avec accès en lecture à ce repository
+- GitHub account with read access to this repository
 - Git CLI
 - SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+- Python interpreter, version 3.6 or higher
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
+In the rest of the local development documentation, it is assumed that the `python` command from your OS shell runs the above-mentioned Python interpreter (unless a virtual environment is activated).
 
 ### macOS / Linux
 
-#### Cloner le repository
+#### Clone the repository
 
 - `cd /path/to/put/project/in`
 - `git clone https://github.com/FabL-B/Python-OC-Lettings-FR`
 
-#### Créer l'environnement virtuel
+#### Create the virtual environment
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `python -m venv venv`
-- `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
-- Activer l'environnement `source venv/bin/activate`
-- Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
-- Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
-- Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
-- Pour désactiver l'environnement, `deactivate`
+- `apt-get install python3-venv` (If the previous step throws a "package not found" error on Ubuntu)
+- Activate the environment: `source venv/bin/activate`
+- Confirm that the `python` command runs the Python interpreter from the virtual environment  
+  `which python`
+- Confirm that the Python interpreter version is 3.6 or higher  
+  `python --version`
+- Confirm that the `pip` command runs the pip executable from the virtual environment  
+  `which pip`
+- To deactivate the environment: `deactivate`
 
-#### Exécuter le site
+#### Run the site
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `source venv/bin/activate`
 - `pip install --requirement requirements.txt`
 - `python manage.py runserver`
-- Aller sur `http://localhost:8000` dans un navigateur.
-- Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
+- Go to `http://localhost:8000` in a browser.
+- Confirm that the site works and is navigable (you should see several profiles and lettings).
 
 #### Linting
 
@@ -60,62 +62,62 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - `source venv/bin/activate`
 - `flake8`
 
-#### Tests unitaires
+#### Unit tests
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `source venv/bin/activate`
 - `pytest`
 
-#### Base de données
+#### Database
 
 - `cd /path/to/Python-OC-Lettings-FR`
-- Ouvrir une session shell `sqlite3`
-- Se connecter à la base de données `.open oc-lettings-site.sqlite3`
-- Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
-- `.quit` pour quitter
+- Open a shell session: `sqlite3`
+- Connect to the database: `.open oc-lettings-site.sqlite3`
+- Display the tables in the database: `.tables`
+- Display the columns in the profile table: `pragma table_info(Python-OC-Lettings-FR_profile);`
+- Run a query on the profile table:  
+  `select user_id, favorite_city from Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
+- `.quit` to exit
 
-#### Panel d'administration
+#### Admin panel
 
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
+- Go to `http://localhost:8000/admin`
+- Log in with user `admin`, password `Abc1234!`
 
 ### Windows
 
-Utilisation de PowerShell, comme ci-dessus sauf :
+Using PowerShell, same as above except:
 
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
-- Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+- To activate the virtual environment: `.\venv\Scripts\Activate.ps1` 
+- Replace `which <my-command>` with `(Get-Command <my-command>).Path`
 
 ## Documentation
 
-La documentation technique du projet est générée avec [Sphinx](https://www.sphinx-doc.org/) et hébergée sur [Read the Docs](https://readthedocs.org/).
+The technical documentation of the project is generated with [Sphinx](https://www.sphinx-doc.org/) and hosted on [Read the Docs](https://readthedocs.org/).
 
-Elle comprend :
+It includes:
 
-- Un guide d’installation et de déploiement
-- Une description des technologies utilisées
-- Une documentation manuelle des modèles et vues
-- (Optionnel) Une référence API générée automatiquement avec `autodoc`
+- An installation and deployment guide
+- A description of the technologies used
+- Manual documentation for models and views
+- (Optional) An automatically generated API reference using `autodoc`
 
- Accéder à la documentation : [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
+Access the documentation: [https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/](https://python-oc-lettings-fr-flb.readthedocs.io/en/latest/)
 
-Pour regénérer la documentation localement :
+To regenerate the documentation locally:
 
 ```bash
-# Sous Windows
+# On Windows
 .\docs\make.bat html
 
-# Sous Linux/macOS
+# On Linux/macOS
 make html
 
-# Ouvrir la documentation locale
+# Open local documentation
 docs/build/html/index.html
 ```
 
-## Technologies utilisées
+## Technologies Used
 
 - Python 3.12
 - Django 4.x
