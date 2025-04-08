@@ -1,7 +1,7 @@
 import logging
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from lettings.models import Letting
-from django.http import Http404
+from sentry_sdk import capture_exception
 
 """
 View management module for the Lettings application.
@@ -17,10 +17,18 @@ def index(request):
     """
     Display the list of available rentals.
     """
-    logger.info("[Lettings] Viewing list of rentals")
-    lettings_list = Letting.objects.all()
-    context = {'lettings_list': lettings_list}
-    return render(request, 'lettings/index.html', context)
+    try:
+        logger.info("[Lettings] Viewing list of rentals")
+        lettings_list = Letting.objects.all()
+        context = {'lettings_list': lettings_list}
+        return render(request, 'lettings/index.html', context)
+    except Exception as e:
+        logger.error(
+            "[Lettings] Error while listing rentals",
+            exc_info=e
+            )
+        capture_exception(e)
+        raise
 
 
 def letting_detail(request, letting_id):
@@ -28,13 +36,17 @@ def letting_detail(request, letting_id):
     Display details of a specific rental.
     """
     try:
-        letting = Letting.objects.get(id=letting_id)
+        letting = get_object_or_404(Letting, id=letting_id)
         logger.info(f"[Lettings] Rental found: {letting.title}")
         context = {
             'title': letting.title,
             'address': letting.address,
         }
         return render(request, 'lettings/letting.html', context)
-    except Letting.DoesNotExist:
-        logger.error(f"[Lettings] No letting found with ID={letting_id}")
-        raise Http404("Letting not found")
+    except Exception as e:
+        logger.error(
+            f"[Lettings] Error while retrieving rental ID={letting_id}",
+            exc_info=e
+            )
+        capture_exception(e)
+        raise
