@@ -70,3 +70,31 @@ Run the local server
     python manage.py runserver
 
 The application will be available at: http://127.0.0.1:8000/
+
+Run the tests
+-------------
+
+To run the unit and integration tests, use:
+
+.. code-block:: bash
+
+    pytest
+
+Code style check (optional)
+---------------------------
+
+To check that your code follows the style guide:
+
+.. code-block:: bash
+
+    flake8
+
+
+Admin panel access (optional)
+-----------------------------
+
+You can log into the Django admin interface at:
+
+http://127.0.0.1:8000/admin
+
+Use the credentials you created with the `createsuperuser` command.

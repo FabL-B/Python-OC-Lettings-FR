@@ -16,7 +16,6 @@ documentation for details.
    :caption: Contents:
 
    installation
-   quickstart
    technologies
    models
    api
