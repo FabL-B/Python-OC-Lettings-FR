@@ -30,3 +30,10 @@ def test_letting_detail_view(client):
     assert response.status_code == 200
     assertTemplateUsed(response, "lettings/letting.html")
     assertContains(response, "Nice Apartment")
+
+
+@pytest.mark.django_db
+def test_letting_detail_view_invalid_id(client):
+    """Test letting detail page for a non-existent letting returns 404."""
+    response = client.get(reverse("lettings:letting_detail", args=[999]))
+    assert response.status_code == 404

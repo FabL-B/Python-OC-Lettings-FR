@@ -25,3 +25,12 @@ def test_profile_detail_view(client):
     assert response.status_code == 200
     assertTemplateUsed(response, "profiles/profile.html")
     assertContains(response, "Nantes")
+
+
+@pytest.mark.django_db
+def test_profile_detail_view_invalid_username(client):
+    """Test profile detail page for a non-existent user returns 404."""
+    response = client.get(
+        reverse("profiles:profile_detail", args=["unknownuser"])
+    )
+    assert response.status_code == 404
