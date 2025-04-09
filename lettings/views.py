@@ -27,7 +27,6 @@ def index(request):
             "[Lettings] Error while listing rentals",
             exc_info=e
             )
-        capture_exception(e)
         raise
 
 
@@ -48,5 +47,4 @@ def letting_detail(request, letting_id):
             f"[Lettings] Error while retrieving rental ID={letting_id}",
             exc_info=e
             )
-        capture_exception(e)
         raise

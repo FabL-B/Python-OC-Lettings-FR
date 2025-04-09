@@ -27,7 +27,6 @@ def index(request):
             "[Profiles] Error while listing profiles",
             exc_info=e
             )
-        capture_exception(e)
         raise
 
 
@@ -45,5 +44,4 @@ def profile_detail(request, username):
             f"[Profiles] Error while retrieving profile: username={username}",
             exc_info=e
             )
-        capture_exception(e)
         raise

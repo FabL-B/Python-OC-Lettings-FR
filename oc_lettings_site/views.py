@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from sentry_sdk import capture_exception
 import logging
 
 """
@@ -20,15 +21,17 @@ def index(request):
 
 def custom_404(request, exception):
     """
-    Display 404 error.
+    Display 404 error and capture it in Sentry.
     """
+    capture_exception(exception)
     return render(request, "404.html", status=404)
 
 
 def custom_500(request):
     """
-    Display 500 error.
+    Display 500 error and capture it in Sentry.
     """
+    capture_exception()
     return render(request, "500.html", status=500)
 
 
