@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from profiles.models import Profile
 import logging
-from sentry_sdk import capture_exception
 
 """
 View management module for the Profiles application.
