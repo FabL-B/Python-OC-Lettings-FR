@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 from pytest_django.asserts import assertTemplateUsed, assertContains
 from lettings.models import Address, Letting
+from profiles.views import profile_detail
 
 
 @pytest.mark.django_db
